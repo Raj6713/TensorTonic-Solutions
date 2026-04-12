@@ -1,0 +1,16 @@
+import numpy as np
+import math
+
+def gelu(x):
+    """
+    Compute the Gaussian Error Linear Unit (exact version using erf).
+    x: list or np.ndarray
+    Return: np.ndarray of same shape (dtype=float)
+    """
+    x = np.asarray(x)
+    erf_term = np.vectorize(math.erf)(x/math.sqrt(2))
+    x_gelu = 0.5*x*(1+erf_term)
+    print(x_gelu)
+    return x_gelu
+
+    
